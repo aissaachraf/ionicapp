@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-title>Discover Places</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+  <ion-avatar slot="end">
+
+<ion-img src="../../../assets/icon/photo.png"></ion-img>
+  </ion-avatar>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content class="ion-padding">
+<ion-segment (ionChange)="onFilterUpdate($event)" value="all" >
+  <ion-segment-button value="all" checked>
+    All places
+  </ion-segment-button>
+  <ion-segment-button value="Bookable-places" >
+    Bookable places
+  </ion-segment-button>
+</ion-segment>
+
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="12" size-sm="8" offset-sm="2" >
+<ion-slides mode="ios" pager="ios" scrollbar="ios" >
+  <ion-slide *ngFor="let place of loadedplaces" >
+    <ion-card>
+      <ion-card-header   >
+        <ion-card-subtitle>{{ place.title }}</ion-card-subtitle>
+        <ion-card-title>{{ place.price | currency }} / Night</ion-card-title>
+      </ion-card-header>
+      <ion-img [src]="place.imgUrl"></ion-img>
+      
+    <ion-card-content>
+      {{ place.description }}
+    
+    </ion-card-content>
+    <div   class="ion-text-right" >
+    
+    <ion-button   color="primary" fill="clear" [routerLink]="[ '/', 'places','tabs','discover',loadedplaces[0].id ]" >
+      More
+    </ion-button>
+    
+    </div>
+    </ion-card>
+  </ion-slide>
+</ion-slides>
+
+
+    </ion-col>
+   
+  </ion-row>
+</ion-grid>
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="12">
+
+      <ion-virtual-scroll [items]="loadedplacesrended" approxItemHeight="100px">
+  
+        <ion-item  [routerLink]="[ '/', 'places','tabs','discover',place.id ]" detail *virtualItem="let place">
+         <ion-thumbnail>
+          <ion-img [src]="place.imgUrl"></ion-img>
+         </ion-thumbnail>
+        
+                <ion-label class="ion-padding">
+                  <h2>{{ place.title }}</h2>
+              <p>{{ place.description }}</p>
+          
+              </ion-label>
+              <h2>{{ place.price | currency}} </h2>
+           
+               
+           
+         
+        </ion-item>
+      </ion-virtual-scroll>
+
+    </ion-col>
+   
+  </ion-row>
+</ion-grid>
+
+
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    
+    <ion-title>My Offers</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/','places','tabs','offers','new']" >
+        <ion-icon slot="start" class="addicon" name="add"></ion-icon>
+        
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    
+  
+<ion-list>
+  <ion-item-sliding *ngFor="let offer of offers" #slidingitem>
+    <app-offer-item [offer]="offer"></app-offer-item>
+
+    <ion-item-options >
+      <ion-item-option (click)="onedit(offer.id,slidingitem)">
+        <ion-icon slot="icon-only" name="create"></ion-icon>
+      </ion-item-option>
+   
+    </ion-item-options >
+  </ion-item-sliding>
+
+ 
+</ion-list>
+</ion-content>

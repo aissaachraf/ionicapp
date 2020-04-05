@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>edit-offer</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="editoffer()" [disabled]="!form.valid">
+        <ion-icon slot="end" name="checkmark" ></ion-icon>
+
+      </ion-button>
+
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'places/tabs/offers/'+ place.id"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <form [formGroup]="form">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+<ion-item>
+  <ion-label position="floating">title</ion-label>
+  <ion-input type="text" formControlName="title"></ion-input>
+</ion-item>
+
+      </ion-col>
+      
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+<ion-item>
+  <ion-label position="floating">description</ion-label>
+  
+  <ion-textarea formControlName="description"></ion-textarea>
+</ion-item>
+
+      </ion-col>
+      
+    </ion-row>
+    <ion-row *ngIf="!form.get('description').valid && form.get('description').touched">
+      <ion-col size="12">
+        <p>the description must be less then 128 caracter!</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
+</ion-card>
+</ion-content>

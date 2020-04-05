@@ -4,7 +4,7 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #3880ff;
+  --ion-color-primary: #dd0583;
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
@@ -20,7 +20,7 @@
   --ion-color-secondary-tint: #50c8ff;
 
   /** tertiary **/
-  --ion-color-tertiary: #5260ff;
+  --ion-color-tertiary: #f71c1c;
   --ion-color-tertiary-rgb: 82, 96, 255;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255, 255, 255;
@@ -74,7 +74,46 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
-}
+  
+  ion-toolbar  {
+    --background: var(--ion-color-primary);
+    --border-color: #3880ff;
+    --border-style: none;
+    --border-width: 0px;
+    --color: #ffffff;
+    --min-height: 56px;
+    --opacity: 1;
+    --padding-bottom: 4px;
+    --padding-end: 4px;
+    --padding-start: 4px;
+    --padding-top: 4px;
+
+    ion-menu-button {
+      --background: none;
+      --background-focused: #3880ff;
+      --background-focused-opacity: 1;
+      --background-hover: #3880ff;
+      --background-hover-opacity: 1;
+      --border-radius: 4px;
+      --color: #ffffff;
+      --color-focused: #3880ff;
+      --color-hover: #3880ff;
+      --padding-bottom: 4px;
+      --padding-end: 4px;
+      --padding-start: 4px;
+      --padding-top: 4px;
+      
+    }
+    
+  };
+  
+  
+
+
+  }
+
+  //--ion-padding: 14px;
+
 
 @media (prefers-color-scheme: dark) {
   /*
